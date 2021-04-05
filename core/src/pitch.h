@@ -16,7 +16,6 @@ typedef std::tuple<Fifths, Octaves> NoteCoordinates;
 typedef std::tuple<Fifths, Octaves, Direction> IntervalCoordinates;
 typedef std::variant<PitchClassCoordinates, NoteCoordinates, IntervalCoordinates> PitchCoordinates;
 
-
 /**
  * Pitch properties
  *
@@ -34,17 +33,19 @@ public:
     const int oct;       // undefined for pitch classes
     const Direction dir; // undefined for notes
 
-    Pitch(int _step, int _alt, int _oct, Direction _dir) : step(_step), alt(_alt), oct(_oct), dir(_dir) {
-        std::cout << "Created a pitch instance!" << std::endl;
-    };
-
-    void showParams() {
+    Pitch(int _step, int _alt, int _oct, Direction _dir) : step(_step), alt(_alt), oct(_oct), dir(_dir)
+    {
+        std::cout << "Pitch {" << std::endl;
+        std::cout << "    step: ";
         std::cout << step << std::endl;
+        std::cout << "    alt: ";
         std::cout << alt << std::endl;
+        std::cout << "    oct: ";
         std::cout << oct << std::endl;
+        std::cout << "    dir: ";
         std::cout << dir << std::endl;
+        std::cout << "}" << std::endl;
     };
-
 };
 
 bool isPitch(Pitch pitch)
